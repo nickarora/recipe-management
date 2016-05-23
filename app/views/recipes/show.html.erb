@@ -10,6 +10,7 @@
     </p>
   </div>
   <div class="col-md-8 pull-left">
+  <%= link_to "Edit this Recipe", edit_recipe_path(@recipe), class: "btn btn-success pull-right" %>
     <h3><%= @recipe.summary %></h3>
     <div class="well">
       <p>
