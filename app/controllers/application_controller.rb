@@ -16,7 +16,13 @@ class ApplicationController < ActionController::Base
   def require_user
     if !logged_in?
       flash[:danger] = "You must be logged in to perform that action."
-      redirect_to root_path
+      attempt_redirect_to_back
     end
+  end
+
+  def attempt_redirect_to_back
+    redirect_to :back
+  rescue ActionController::RedirectBackError
+    redirect_to root_path
   end
 end
