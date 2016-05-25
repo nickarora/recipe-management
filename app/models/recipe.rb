@@ -19,8 +19,12 @@ class Recipe < ActiveRecord::Base
     self.likes.where(like: false).size
   end
 
-  def self.find_by_keyword(query)
+  def self.find_by_keyword(query = "")
     self.search(query).records
+  end
+
+  def self.find_by_chef(query = "", chefname = "")
+    self.chef_search(query, chefname).records
   end
 
   private
