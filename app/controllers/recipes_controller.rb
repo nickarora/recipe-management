@@ -55,6 +55,7 @@ class RecipesController < ApplicationController
   end
 
   def search
+    @chefs = Chef.all
   end
 
   private
