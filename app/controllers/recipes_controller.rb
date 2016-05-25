@@ -4,7 +4,11 @@ class RecipesController < ApplicationController
   before_action :require_same_user, only: [:edit, :update]
 
   def index
-    @recipes = Recipe.paginate(page: params[:page], per_page: 3)
+    if (params[:search])
+      @recipes = Recipe.find_by_keyword(params[:search]).paginate(page: params[:page], per_page: 3)
+    else
+      @recipes = Recipe.paginate(page: params[:page], per_page: 3)
+    end
   end
 
   def show

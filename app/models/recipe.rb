@@ -19,6 +19,10 @@ class Recipe < ActiveRecord::Base
     self.likes.where(like: false).size
   end
 
+  def self.find_by_keyword(query)
+    self.search(query).records
+  end
+
   private
     def picture_size
       if picture.size > 5.megabytes
