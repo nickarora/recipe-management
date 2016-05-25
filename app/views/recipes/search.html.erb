@@ -1,0 +1,14 @@
+<%= render 'shared/page_title', title: 'Advanced Search' %>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="form-group">
+      <%= form_tag('/recipes', method: :get, class: 'form-group',  authenticity_token: false) do %>
+        <%= text_field_tag "search", "" , class: "form-control", placeholder: "Search" %>
+        <%= button_tag("Submit", :name => nil, class: "form-control btn btn-default") do %>
+          <span class="glyphicon glyphicon-search"></span>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
