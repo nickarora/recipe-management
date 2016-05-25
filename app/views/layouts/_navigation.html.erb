@@ -24,6 +24,18 @@
           </ul>
         </li>
       </ul>
+      <div class="nav-item">
+        <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+                <%= form_tag('/recipes', method: :get, class: 'form-group',  authenticity_token: false) do %>
+                  <%= text_field_tag "search", "" , class: "search-bar form-control", placeholder: "Search" %>
+                  <%= button_tag("Submit", :name => nil, class: "btn btn-default") do %>
+                    <span class="glyphicon glyphicon-search"></span>
+                  <% end %>
+                <% end %>
+            </div>
+        </form>
+      </div>
     <% else %>
     <div class="nav_item">
       <%= link_to "Log In", login_path, class: "btn btn-default btn-success" %>
