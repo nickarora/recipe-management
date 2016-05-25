@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/advanced_search', to: 'recipes#search'
+
   resources :chefs, except: [:new]
   get '/register', to: 'chefs#new'
 

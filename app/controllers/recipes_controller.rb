@@ -54,6 +54,9 @@ class RecipesController < ApplicationController
     redirect_to :back
   end
 
+  def search
+  end
+
   private
 
     def recipe_params
